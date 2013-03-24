@@ -1,0 +1,98 @@
+/**
+ * This <div> element is wrapped by jCarousel around the list
+ * and has the classname "jcarousel-container".
+ */
+
+/*.jcarousel-clip{
+    overflow: hidden!important;
+}*/
+
+#twiit_list .jcarousel-container, #playlist_list .jcarousel-container, #mostpopular_list .jcarousel-container {
+    position: relative;
+}
+
+#twiit_list .jcarousel-clip, #playlist_list .jcarousel-clip, #mostpopular_list .jcarousel-clip {
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#twiit_list .jcarousel-list, #playlist_list .jcarousel-list, #mostpopular_list .jcarousel-list {
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+}
+
+#twiit_list .jcarousel-item, #playlist_list .jcarousel-item, #mostpopular_list .jcarousel-item {
+    float: left;
+    list-style: none;
+    /* We set the width/height explicitly. No width/height causes infinite loops. */
+/*    width: 75px;
+    height: 75px;*/
+}
+
+/**
+ * The buttons are added dynamically by jCarousel before
+ * the <ul> list (inside the <div> described above) and
+ * have the classnames "jcarousel-next" and "jcarousel-prev".
+ */
+.jcarousel-next {
+    z-index: 3;
+    display: none;
+}
+
+.jcarousel-prev {
+    z-index: 3;
+    display: none;
+}
+
+.arrow_prev_playlist{
+    background: url(../images/icon/arrow.png);
+    width: 15px;
+    height: 15px;
+    background-position: left;
+    cursor: pointer;
+    float: left;
+    margin-left: 71px;
+    margin-bottom: 10px;
+    margin-top: 12px;
+}
+
+.arrow_next_playlist{
+    background: url(../images/icon/arrow.png);
+    width: 15px;
+    height: 15px;
+    background-position: right;
+    cursor: pointer; 
+    float: left;    margin-bottom: 10px;
+    margin-top: 12px;
+}
+
+.arrow_prev_mostpopular{
+    background: url(../images/icon/arrow.png);
+    width: 15px;
+    height: 15px;
+    background-position: left;
+    cursor: pointer;
+    position: absolute;
+    top: -17px;
+    right: 7px;
+}
+
+.arrow_next_mostpopular{
+    background: url(../images/icon/arrow.png);
+    width: 15px;
+    height: 15px;
+    background-position: right;
+    cursor: pointer; 
+    position: absolute;
+    top: -17px;
+    right: -1px;
+}
+

@@ -1,0 +1,139 @@
+#slidesa .slides_container {
+	width: 239px;
+	height: 200px;
+	margin: 0px 1px;
+}
+
+#slidesa .slide {
+	background: #dedede;
+	width: 225px;
+	height: 186px;
+	padding: 7px;
+	border-radius: 5px;
+	display:block;
+}
+
+#slidesa .slide .ep_img{
+	width: 225px;
+	height: 143px;
+	margin-bottom: 10px;
+}
+
+#slidesa .slide .desc{
+	width: 200px;
+	height: 28px;
+	color: #464646;
+	font-weight: bold;
+	float: left;
+}
+
+#slidesa .slide .zoom{
+	float: left;
+	margin-top: 7px;
+}
+
+#slidesa .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:none;
+	z-index:101;
+}
+
+#slidesa .next {
+	left:585px;
+}
+
+#slidesa .pagination {
+	position: absolute;
+	top: 0px;
+	z-index: 6;
+	right: 0px;
+	width: 45px;
+}
+
+#slidesa .pagination li {
+	float:left;
+	list-style:none;	
+	padding: 5px 0px;	
+}
+
+#slidesa .pagination li a {
+	display:block;
+	width:15px;
+	height:0;
+	padding-top:15px;
+	background-image:url(../images/icon/pagination.png);
+	background-position:bottom;
+	float:left;
+	overflow:hidden;
+
+}
+
+#slidesa .pagination li.current a {
+	background-position:top;
+}
+
+#gal_slide .slides_container {
+	width: 243px;
+}
+
+#gal_slide .slide {
+	width: 243px;
+	height: 76px;
+}
+
+#gal_slide .slide img{
+	float: left;
+	width: 74px;
+	height: 74px;
+	border:1px solid rgba(255,255,255,0.27);
+	border-radius: 7px;
+	margin-left: 5px;
+}
+
+#gal_slide .next,#slides .prev {
+	position:absolute;
+	top:107px;
+	left:-39px;
+	width:24px;
+	height:43px;
+	display:none;
+	z-index:101;
+}
+
+#gal_slide .next {
+	left:585px;
+}
+
+#gal_slide .pagination {
+	position: absolute;
+	top: 0px;
+	z-index: 6;
+	right: 0px;
+	width: 45px;
+}
+
+#gal_slide .pagination li {
+	float:left;
+	list-style:none;	
+	padding: 5px 0px;	
+}
+
+#gal_slide .pagination li a {
+	display:block;
+	width:15px;
+	height:0;
+	padding-top:15px;
+	background-image:url(../images/icon/pagination.png);
+	background-position:bottom;
+	float:left;
+	overflow:hidden;
+
+}
+
+#gal_slide .pagination li.current a {
+	background-position:top;
+}

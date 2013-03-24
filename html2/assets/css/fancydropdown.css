@@ -1,0 +1,52 @@
+.dropdown {
+	background: url("../images/dropdown_bg.png") repeat-x left top rgb(255, 93, 139); border-width: 0px; padding: 0px; border-radius: 5px; height: 31px; cursor: pointer; -moz-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; 
+}
+.hover_dropdown {
+	/*background: url("../images/dropdownlist_hover_bg.png") repeat-x left top rgb(255, 93, 139); border-color: rgb(241, 202, 88) rgb(244, 208, 83) rgb(247, 216, 75);*/
+}
+.active_dropdown {
+	/*background: url("../images/active_dropdown_bg.png") repeat-x left top rgb(255, 93, 139); border-color: rgb(194, 118, 43) rgb(194, 136, 56) rgb(194, 158, 71) rgb(194, 134, 54);*/
+}
+.dropdownlist {
+	list-style: none; padding: 1px; border-radius: 5px; border: 0px solid rgb(167, 171, 176); left: 0px; top: 0px; display: none; filter: progid:DXImageTransform.Microsoft.Shadow(Strength=5, Direction=135, Color='#D8D8D8'); position: absolute; cursor: pointer; background-color: rgb(255, 255, 255); -moz-border-radius: 5px; -o-border-radius: 5px; -webkit-border-radius: 5px; 
+}
+.dropdownlist li {
+	border-width: 0px; padding: 0px;
+}
+.dropdownlist li.active img {
+	/*background: url("../images/dropdownlist_active_img_bg.png") no-repeat left top;*/
+}
+.dropdownlist li.hover {
+	background: url("../images/dropdownlist_hover_bg.png") repeat-x left top rgb(255, 93, 139); 
+}
+.dropdown .imgholder {
+	padding: 0px; width: 33px; height: 31px; margin-right: 0px; float: left;
+}
+.dropdownlist .imgholder {
+	padding: 0px; width: 33px; height: 31px; margin-right: 0px; float: left;
+}
+.dropdown p {
+	margin:0; height: 31px; color: #fff; font-size:14px;
+}
+.dropdownlist p {
+	margin: 0px 10px 0px 10px;  height: 31px; color: #fff; font-size:14px; 
+}
+.dropdown p.no-info {
+	padding: 4px; height: 23px;
+}
+.dropdownlist p.no-info {
+	padding: 2px; height: 23px;
+}
+.dropdown p {
+	margin:0;
+	background: url("../images/arrowhead_down.png") no-repeat right;
+}
+.dropdown p strong {
+	color: #fff;
+}
+.dropdown_no-info p strong {
+	color: #fff;
+}
+.dropdownlist p strong {
+	color: #fff;
+}
