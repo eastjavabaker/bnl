@@ -119,9 +119,16 @@ class Articlemodel extends CI_Model {
              $this->db->where('id', $v);
              $this->db->delete($table);
              
-             
     }
     
+    function get_article_top($num=5){             
+             $this->db->select('*');
+             $this->db->from('mod_articles');             
+             $this->db->order_by("id", "desc");
+             $this->db->limit($num);
+             $query = $this->db->get();
+             return $query->result();
+    }
 
 }
 

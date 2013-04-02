@@ -18,15 +18,20 @@ class Article extends CI_Controller {
     }
 
     public function index($loader = '') {
-
-        $this->load->view('view_article');
+        $this->load->model('Articlemodel');
+        
+        $data['article_rs'] = $this->Articlemodel->get_article_top(10);
+        
+        //print_r($config['article_rs']);
+        
+        $this->load->view('view_article', $data);
     }
 
 	public function detail($loader = '')
 	{	
-                if(isset($_GET['_escaped_fragment_'])){
+                /*if(isset($_GET['_escaped_fragment_'])){
 			echo "content from ajax";exit();
-		}
+		}*/
 		$this->load->view('view_article_detail');
 	}
 

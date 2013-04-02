@@ -63,7 +63,7 @@ class Article extends CI_Controller {
 
         if ($this->input->post()) {
 
-            $newname = $this->upload_pic('Article', 'add');
+            $newname = $this->upload_pic('article', 'add');
 
             $this->Articlemodel->insert($newname);
 
@@ -82,7 +82,7 @@ class Article extends CI_Controller {
         $this->load->model('Articlemodel');
         if ($this->input->post()) {
             //print_r($_FILES);die();
-            $newname = $this->upload_pic('Article', 'edit');
+            $newname = $this->upload_pic('article', 'edit');
 
             $this->Articlemodel->update($this->input->post('f_id'), $newname);
             redirect('/websoul/article');

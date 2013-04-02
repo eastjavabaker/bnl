@@ -46,24 +46,18 @@
 <div class="container">
 	<div id="content">
 		<div class="title_style">hot news</div>
-		<div id="slider_article"> 
-			<img src="<?php echo base_url(); ?>dummy_img/creed.jpg" data-caption="#caption1" />
-			<img src="<?php echo base_url(); ?>dummy_img/1.jpg" data-caption="#caption2"  />
-			<img src="<?php echo base_url(); ?>dummy_img/2.jpg" data-caption="#caption3"  />
+		<div id="slider_article">
+                      <?php $i=1;foreach($article_rs as $v){ ?>
+			<img src="<?php echo base_url(); ?>data/articles/<?php echo $v->picture;?>" data-caption="#caption<?php echo $i;?>" />
+                      <?php $i++;} ?>   
 		</div>
 		<!-- Captions for Orbit -->
-		<span class="orbit-caption" id="caption1">
+                <?php $i=1;foreach($article_rs as $v){ ?>
+		<span class="orbit-caption" id="caption<?php echo $i;?>">
 			Today | <span class="subtitle">Editor's Pick</span></br>
-			<a href="<?php echo base_url(); ?>#!article/detail" id="article_detail" onclick="load_content('#article_detail');">Creed TO STAGE Concerts In Four Cities In Indonesia</a>
+			<a href="<?php echo base_url(); ?>#!article/detail" id="article_detail" onclick="load_content('#article_detail');"><?php echo $v->title;?></a>
 		</span>
-		<span class="orbit-caption" id="caption2">
-			Today | <span class="subtitle">Editor's Pick</span></br>
-			<a href="<?php echo base_url(); ?>#!article/detail" id="article_detail" onclick="load_content('#article_detail');">Risus ut turpis, placerat placerat proin ut nec nisi et dis et! Aliquam nascetur</a>
-		</span>
-		<span class="orbit-caption" id="caption3">
-			Today | <span class="subtitle">Editor's Pick</span></br>
-			<a href="<?php echo base_url(); ?>#!article/detail" id="article_detail" onclick="load_content('#article_detail');">Ultrices aliquam? Integer tortor, dapibus, odio lectus platea, tincidunt velit nascetur, elementum lectus.</a>
-		</span>
+                <?php $i++;} ?>
 		<br class="clear">
 		<div id='img_section'>
 			<span class="title_style">INTERVIEWS</span><a href="<?php echo base_url(); ?>#!article/interview" id="article_interview" onclick="load_content('#article_interview');"><span class="see_more">More Interviews</span></a>
