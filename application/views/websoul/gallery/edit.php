@@ -49,109 +49,25 @@
                 </tr><?php } ?>              
             </table><input type="hidden" id="tmp"  />
 	    </fieldset></form>
-  <div id="messages" class="overlay_box" style="display: none">    
-    <a href="#" id="boxclose" ><img src="<?php echo base_url('assets/images/websoul');?>/close.png" /></a>
-    <a href="#" id="boxtitle" >Article Category</a>
-    <div style=" clear: both;"></div>   
-    <div id="content">
-        <table width="360" class="cmxform">
-            <tr>
-                <th width="60"><strong>Cat. ID</strong></th>
-                <th width="160"><strong>Category Name</strong></th>
-                <th><strong>Description</strong></th>
-            </tr>
-            <?php foreach ($cat as $vcat){?>
-            <tr>
-                <td><?php echo $vcat->id;?>.</td>
-                <td><?php echo $vcat->category;?></td>
-                <td><?php echo $vcat->description;?></td>
-            </tr>
-            <?php }?>
-        </table>            
-    </div>		
-</div> <!-- End #messages -->
-
-<script type="text/javascript" src="<?php echo site_url(); ?>assets/js/ckeditor/ckeditor.js"></script>
+ 
 <script src="<?php echo base_url('assets/js');?>/jquery.tools.min.js"></script>
 <script src="<?php echo site_url(); ?>assets/jquery-validation-1.11.0/dist/jquery.validate.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-    //<![CDATA[
-    
-    CKEDITOR.on('instanceCreated', function (e) {
-        e.editor.on('blur', function (ev) {
-            $('#txtcontent').val(ev.editor.getData());
-        });
-    });
-    
-    var config = { extraPlugins: 'onchange'};
-    
-    CKEDITOR.replace( 'txtcontent',
-    {
-        toolbar : 'Basic',
-        enterMode : CKEDITOR.ENTER_BR
-    });
-    //]]>
-    
-                        $('#addcategory').click( function (){
-                            $(".overlay_box").overlay({
-                                top: 260,
-                                mask: {
-                                    color: '#000',
-                                    loadSpeed: 200,
-                                    opacity: 0.7
-                                },
-                                closeOnClick: true,
-                                load: true,
-                                oneInstance: true
-                                
-                            }).load();
-                        })
-                        
-                        $('#boxclose').click( function (){
-                            $(".overlay_box").overlay().close();
-                        })
-    
+        
     $(document).ready(function() {
-        
-        $('#publishd').hide();
-        
-        $('#contentnotif').hide();
         
         $("#editform").validate({
             rules: {
                 category: "required",
-                title: "required",
-                txtsortcontent: "required",
-                txtcontent: "required"
+                caption: "required"
             },
             messages: {
                 category: "Please enter an gallery category.",
-                title: "Please enter an gallery title.",
-                txtsortcontent: "Please enter an gallery short content.",
-                txtcontent: "Please enter an gallery content."
+                caption: "Please enter an gallery title."
             }
         });
         
     });
 			    
-    $('input[name=publish]').click( function (){
-        if($('input[name=publish]:checked').val() == '1'){
-            $('#publishd').show('slow');
-        }else{
-            $('#publishd').hide('slow');
-        }
-    });	
-			    
-    $("form").submit( function() {
-
-        var messageLength = CKEDITOR.instances['txtcontent'].getData().replace(/<[^>]*>/gi, '').length;
-        //alert(messageLength);
-        if( messageLength==1 ) {
-            $('#contentnotif').show();
-        }else{
-            $('#contentnotif').hide();
-        }
-
-    });
-
+    
 </script>
