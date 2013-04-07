@@ -19,7 +19,7 @@ function delRec() {
     <thead>
     <tr>
         <th width="40">No.</th>
-        <th width="220">Category</th>
+        <th width="120">Category</th>
         <th>Caption</th>
         <th width="100">Publish</th>
         <th width="120">Created</th>
@@ -29,10 +29,10 @@ function delRec() {
     <?php $i=1;foreach($query as $v){ ?>
     <tr>
         <td valign="top"><?php echo $i+$cur_page;?>.</td>
-        <td valign="top"><?php echo $v->category;?></td>
+        <td valign="top"><?php echo $category[$v->category];?></td>
         <td valign="top"><?php echo $v->caption;?></td>
         <td valign="top"><?php echo $publish[$v->publish];?></td>
-        <td valign="top"><?php echo date("d M Y, H:i",strtotime($v->post_date));?></td>
+        <td valign="top"><?php echo date("d M Y, H:i",strtotime($v->created));?></td>
         <td valign="top"><a title="Edit this record" href="<?php echo site_url("websoul/gallery/edit/".$v->id); ?>"><img src="<?php echo site_url(); ?>assets/images/icons/dark/pencil.png" alt="" /></a></td>
         <td valign="top"><input type="checkbox" id="chk<?php echo $i;?>" name="chk[<?php echo $i;?>]" value="<?php echo $v->id;?>" />      
         </td>

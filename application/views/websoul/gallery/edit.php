@@ -8,22 +8,31 @@
                 <td>
                     <div style="width: 50%; float: left;"><select name="category" id="category" class="text-input large-input" >
                          <option value="">-- Select Category --</option>
-                        <?php foreach ($cat as $vcat){?>
-                        <option value="<?php echo $vcat->id;?>"><?php echo $vcat->category;?></option>
-                        <?php } ?>
+                        <option value="1" <?php echo ($v->category==1)?'selected="selected"':''; ?> >Picture</option>
+                        <option value="2" <?php echo ($v->category==2)?'selected="selected"':''; ?> >Video</option>
                     </select></div>
                     
-                    <div style="width: 28px; height: 28px; margin-top: 6px; float: left;"><a href="#" id="addcategory" title="Add new category"><img src="<?php echo base_url(); ?>assets/images/websoul/icons/plus-icon-28.png" rel="modal" /></a></div>
+                </td>
+            </tr>
+            <tr>
+                <td width="120" valign="top"><strong>Album *</strong></td>
+                <td>
+                    <div style="width: 50%; float: left;"><select name="album" id="album" class="text-input large-input" >
+                        <option value="">-- Select Album --</option>
+                        <?php foreach ($albums as $album){?>
+                        <option value="<?php echo $album->id;?>"><?php echo $album->album_name;?></option>
+                        <?php } ?>
+                    </select></div>
                 </td>
             </tr>
                 <tr valign="top">
                   <td width="120"><strong>Caption *</strong></td>
-                  <td><input type="text" name="caption" id="caption" class="text-input large-input" value="<?php echo $v->title;?>" />
+                  <td><input type="text" name="caption" id="caption" class="text-input large-input" value="<?php echo $v->caption;?>" />
 		  </td>
                 </tr>
                 <tr>
                   <td width="120"  valign="top" ><strong>Video *</strong></td>
-                  <td  valign="top"><textarea rows="5" cols="100" name="video" id="video" class="textarea" /><?php echo $v->content;?></textarea></td>
+                  <td  valign="top"><textarea rows="5" cols="100" name="video" id="video" class="textarea" /><?php echo $v->embed_video;?></textarea></td>
                 </tr>
                 <?php if($v->picture!=""){  ?>
                 <tr>

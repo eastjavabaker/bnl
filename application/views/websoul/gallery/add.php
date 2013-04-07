@@ -9,7 +9,18 @@
                         <select name="category" id="category" class="text-input large-input" >
                         <option value="">-- Select Category --</option>
                         <option value="1">Picture</option>
-                        <option value="2">Gallery</option>
+                        <option value="2">Video</option>
+                    </select></div>
+                </td>
+            </tr>
+            <tr>
+                <td width="120" valign="top"><strong>Album *</strong></td>
+                <td>
+                    <div style="width: 50%; float: left;"><select name="album" id="album" class="text-input large-input" >
+                        <option value="">-- Select Album --</option>
+                        <?php foreach ($albums as $album){?>
+                        <option value="<?php echo $album->id;?>"><?php echo $album->album_name;?></option>
+                        <?php } ?>
                     </select></div>
                 </td>
             </tr>

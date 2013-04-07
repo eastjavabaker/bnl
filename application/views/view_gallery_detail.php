@@ -38,8 +38,8 @@
 	<div id="content" class="bg_white event_detail_page">
 		<div id="big_gallery">
 			<?php 
-			$j = 9;
-			for ($i=1; $i < $j; $i++) { ?>
+			$i = 1;$description = '';
+			foreach ($query as $v) { $description = $v->description;?>
 				<div id="detail<?php echo $i; ?>" class="content" <?php  echo ($i == 1) ? 'style="display:block"' : '' ; ?>>
 					<?php if ($i != 1): ?>
 						<a href="#" class="arrow prev" onclick="gotoslide('<?php echo $i-1; ?>');return false;" ></a>
@@ -47,24 +47,26 @@
 					<?php if ($i+1 != $j): ?>
 						<a href="#" class="arrow next" onclick="gotoslide('<?php echo $i+1; ?>');return false;" ></a>
 					<?php endif ?>
-					<img src="<?php echo base_url('dummy_img/gallery/'.$i.'.jpg'); ?>" />
+					<img src="<?php echo base_url('data/gallery/'.$v->picture); ?>" />
 					<div class="caption">
-						<h4>creed</h4>
-						Guinness Arthur Day 2012 Jakarta 
+						<h4><?php $v->artist;?></h4>
+						<?php $v->caption;?> 
 					</div>
 				</div>
-			<?php }?>				
+			<?php $i++;}?>				
 		</div>
 		<ul id="mycarousel" class="jcarousel-skin-tango">
-			<?php for ($i=1; $i < 9; $i++) { ?>
-				<li><a href="javascript:void();" <?php  echo ($i == 1) ? 'class="selected"' : '' ; ?> id="link<?php echo $i; ?>" ><img src="<?php echo base_url('dummy_img/gallery/'.$i.'.jpg'); ?>" /></a></li>
-			<?php }?>	
+			<?php 
+			$i = 1;
+			foreach ($query as $v2) {  $albumcreated = date("d M Y",strtotime($v->albumcreated)); ?>
+				<li><a href="javascript:void();" <?php  echo ($i == 1) ? 'class="selected"' : '' ; ?> id="link<?php echo $i; ?>" ><img src="<?php echo base_url('data/gallery/thumb_'.$v2->picture); ?>" /></a></li>
+			<?php $i++;}?>	
 		</ul>
 		<p>
-			Intro paragraph lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet doloMirum est notnunc. Date 1 Nov - 9 Des 2013 Time 17:00 AM - Finish Location Mall Gandaria City, Jakarta Selatan, Indonesia. ure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et eu feugiat nulla facilisis at vero eros et putate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et eu feugiat nulla facilisis at vero.
+			<?php echo $description;?>
 		</p>
 		<div class="info info_photo">
-			<span class="square">&#9632;</span>  Author BnL  <span class="square">&#9632;</span>  Posted 12 Feb 2013	
+			<span class="square">&#9632;</span>  Author BnL  <span class="square">&#9632;</span>  Posted <?php echo $albumcreated;?>	
 		</div>
 		<a href="" class="share" style="float: right;">Share this gallery </a>
 		<div class="clear"></div>

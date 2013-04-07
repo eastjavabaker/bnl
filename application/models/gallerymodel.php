@@ -8,6 +8,28 @@ class Gallerymodel extends CI_Model {
         parent::__construct();
     }
     
+    function get_gallery_albums_list($cat=0){             
+             $this->db->select('*');
+             $this->db->from('mod_gallery_albums');   
+             if($cat>0){
+                $this->db->where('category', $cat);
+             }
+             $this->db->order_by("id", "desc");
+             $query = $this->db->get();
+             return $query->result();
+    }
+    
+    function get_gallery_list_by_album($albumid = 0){
+             
+             $this->db->select("mod_gallery.*, mod_gallery_albums.artist, mod_gallery_albums.album_name, mod_gallery_albums.description, mod_gallery_albums.created as 'albumcreated'");
+             $this->db->from('mod_gallery');  
+             $this->db->join('mod_gallery_albums', 'mod_gallery.album_id=mod_gallery_albums.id', 'INNER');
+             $this->db->where("album_id", $albumid);
+             $this->db->order_by("id", "desc");
+             $query = $this->db->get();
+             return $query->result();
+    }
+    
     function get_gallery_list($page, $pagenumber){
              
              $this->db->select('*');
@@ -33,16 +55,17 @@ class Gallerymodel extends CI_Model {
     {
         $data = array();        
         $data['category'] = $this->input->post('category');
+        $data['album_id'] = $this->input->post('album');
         $data['caption'] = $this->input->post('caption');
         $data['embed_video'] = $this->input->post('video');
+        $data['publish'] = $this->input->post('publish');
         if($img){
            $data['picture'] = $img;
         }
 
         $data['created'] = date('Y-m-d H:i:s');
         $data['post_by'] = "admin";
-        $this->db->insert('mod_gallery', $data);
-      
+        $this->db->insert('mod_gallery', $data);      
     }
     
    
@@ -55,20 +78,20 @@ class Gallerymodel extends CI_Model {
     }
     
     function update($id, $img="")
-    {
-        
+    {        
         $data = array();  
         $data['category'] = $this->input->post('category');
+        $data['album_id'] = $this->input->post('album');
         $data['caption'] = $this->input->post('caption');
         $data['embed_video'] = $this->input->post('video');
+        $data['publish'] = $this->input->post('publish');
         if($img){
            $data['picture'] = $img;
         }
 
         $data['created'] = date('Y-m-d H:i:s');
         $data['post_by'] = "admin";
-        $this->db->update('mod_gallery', $data, array('id' => mysql_escape_string($id)));
-        
+        $this->db->update('mod_gallery', $data, array('id' => mysql_escape_string($id)));        
     }
     
     function delete($id)
