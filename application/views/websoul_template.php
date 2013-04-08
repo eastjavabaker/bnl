@@ -94,6 +94,8 @@
 	</li>
         <li><a class="nav-top-item no-submenu <?php echo (preg_match("/websoul\/gallery/",$_SERVER['REQUEST_URI']))?"current":""; ?>" href="<?php echo site_url('websoul/gallery');?>">Gallery</a>
 	</li>
+        <li><a class="nav-top-item no-submenu <?php echo (preg_match("/websoul\/event/",$_SERVER['REQUEST_URI']))?"current":""; ?>" href="<?php echo site_url('websoul/event');?>">Events</a>
+	</li>
 			</ul> <!-- End #main-nav -->
 			
 			</div></div> <!-- End #sidebar -->
